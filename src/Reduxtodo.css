@@ -1,0 +1,82 @@
+.header{
+   
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    color: red;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    
+}
+.b-container{
+  margin-top: 50px;
+    background-color: PowderBlue;
+   height: 100vh;
+    padding: 20px;
+}
+.b-in{
+height: 40px;
+}
+.b-in input{
+    background-color: black;
+    font-size: large;
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+    width: 550px;
+    height: 100%;
+}
+.b-in button{
+   
+        background-color: black;
+        color: white;
+        font-weight: 600;
+        border: none;
+        border-radius: 20px; /* Makes the button round */
+        width: 80px;
+        height: 50px;
+        cursor: pointer;
+        margin-left: 5px;
+      
+        transition: background-color 0.3s ease; /* Add a smooth hover effect */
+      
+        
+        &:hover {
+          background-color: darkgreen;
+        }
+}
+.list button {
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid black;
+  color: white;
+  background-color: orangered;
+  
+
+}
+.list button:hover{
+    background-color: red;
+    color:white;
+    font-weight: 600;
+}
+.list ul{
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+.list li{
+  border-radius: 20px;
+  margin: 10px 0;
+  background-color: aqua;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  width: 95%;
+  margin-top: 20px;
+}
+.list span{
+  text-align: start;
+  flex: 1;
+}
+

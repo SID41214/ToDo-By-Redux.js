@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import "./Reduxtodo.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,8 +17,17 @@ const Reduxtodo = () => {
   };
 
   const handleSave = (id) => {
-    dispatch(edittodo({ id, todo: edit }));
-    setEmpty(null);
+    if (edit.trim() !== "") {
+      dispatch(edittodo({ id, todo: edit }));
+      setEmpty(null);
+    }
+  };
+
+  const handleAdd = () => {
+    if (indata.trim() !== "") {
+      dispatch(addtodo(indata));
+      setIndata("");
+    }
   };
 
   return (
@@ -28,7 +35,13 @@ const Reduxtodo = () => {
       <div className="header">
         <h1>To Do List</h1>
       </div>
-      <div style={{ display: "flex", justifyContent: "center", background: "PaleTurquoise" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          background: "PaleTurquoise",
+        }}
+      >
         <div className="b-container">
           <div className="b-in">
             <input
@@ -36,9 +49,10 @@ const Reduxtodo = () => {
               id="username"
               name="username"
               placeholder="Enter Items to Add"
+              value={indata}
               onChange={(e) => setIndata(e.target.value)}
             />
-            <button type="submit" onClick={() => dispatch(addtodo(indata))}>
+            <button type="submit" onClick={handleAdd}>
               ADD
             </button>
           </div>
@@ -54,11 +68,15 @@ const Reduxtodo = () => {
                       </>
                     ) : (
                       <>
-                        <input onChange={handleChange} />
-                        <button onClick={() => handleSave(item.id)}>Save</button>
+                        <input value={edit} onChange={handleChange} />
+                        <button onClick={() => handleSave(item.id)}>
+                          Save
+                        </button>
                       </>
                     )}
-                    <button onClick={() => dispatch(deletetodo(item.id))}>Delete</button>
+                    <button onClick={() => dispatch(deletetodo(item.id))}>
+                      Delete
+                    </button>
                   </li>
                 ))}
               </ul>
